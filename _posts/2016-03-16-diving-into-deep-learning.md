@@ -30,7 +30,7 @@ the order described, which may have made things easier for me.
 
 ---
 
-### Footnotes:
+#### Footnotes:
 
 [^1]: Use the directions given by [NVIDIA](http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf) for installing CUDA 7.5 on Ubuntu 14.04. Do not use `sudo apt-get install cuda`
 
