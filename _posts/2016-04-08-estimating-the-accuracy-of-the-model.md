@@ -5,8 +5,6 @@ subtitle: ISLR Chapter 3 Outline
 ---
 ### 3.1.3 - Estimating the Accuracy of the Model
 
-<br/>
-
 #### Residual Standard Error (RSE)
 
 $$RSE = \sigma \approx \sqrt{ \frac{1}{n - 2} RSS }$$

@@ -6,8 +6,6 @@ subtitle: ISLR Chapter 3 Outline
 
 ## 3.1 - Simple Linear Regression
 
-<br/>
-
 #### Estimation of Y
 
 $$Y \approx \beta_0 + \beta_1 x$$

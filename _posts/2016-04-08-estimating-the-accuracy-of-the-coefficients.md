@@ -5,8 +5,6 @@ subtitle: ISLR Chapter 3 Outline
 ---
 ### 3.1.2 - Estimating the Accuracy of the Coefficients
 
-<br/>
-
 #### Relationship between Standard Deviation and Variance
 
 $$Var(X) = \sigma^2$$

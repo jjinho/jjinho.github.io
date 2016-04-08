@@ -1,19 +1,8 @@
 ---
 layout: post
-title: 3.2 Multiple Linear Regression and Estimating the Coefficients
+title: 3.3 Other Considerations in the Regression Model
 subtitle: ISLR Chapter 3 Outline
 ---
-## 3.2 - Multiple Linear Regression
-
-### 3.2.1 - Estimating the Regression Coefficients
-
-### 3.2.2 - Some Important Questions
-
-* Is there a relationship between the Response and the Predictors?
-* Deciding on Important Variables
-* Model Fit
-* Predictions
-
 ## 3.3 - Other Considerations in the Regression Model
 
 ### 3.3.1 - Qualitative Predictors
