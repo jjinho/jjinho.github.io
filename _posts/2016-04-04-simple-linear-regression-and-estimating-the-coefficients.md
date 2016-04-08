@@ -8,13 +8,13 @@ subtitle: ISLR Chapter 3 Outline
 
 <br/>
 
-####Estimation of Y
+#### Estimation of Y
 
 $$Y \approx \beta_0 + \beta_1 x$$
 
 <br/>
 
-####Prediction of Y:
+#### Prediction of Y:
 
 $$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x$$
 
