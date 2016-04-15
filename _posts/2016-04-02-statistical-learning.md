@@ -1,9 +1,8 @@
 ---
-layout: page
-title: Introduction to Statistical Learning with Application in R
-subtitle: My personal notes
+layout: post
+title: 2 Statistical Learning
+subtitle: ISLR Chapter 2 Outline
 ---
-
 ## Section 2
 
 ### Derivation of Reducible and Irreducible Error
@@ -22,6 +21,8 @@ E(Y - \hat{Y})^2 & = E[f(X) + \epsilon - \hat{f}(X)]^2  \\
       \underbrace{Var(\epsilon)}_\text{Irreducible Error}
 \end{align}
 $$
+
+<br/>
 
 ### Derivation of $$Var(\epsilon)$$
 
