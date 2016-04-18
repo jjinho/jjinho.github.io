@@ -155,19 +155,69 @@ $$
 #### Linear Discriminant Analysis (LDA)
 
 We approximate the Bayes classifier by plugging in estimates for $$\pi_k$$,
-$$\mu_k$$, and $$\sigma^2$$.
+$$\mu_k$$, and $$\sigma^2$$ into $$\hat{\delta}_k$$.
 
-$$\hat{\mu}_k = \frac{1}{n_k} \sum_{i:y_i=k} x_i$$
-
-$$\hat{\sigma}^2 = \frac{1}{n-k} \sum_{k=1}^K 
-                                 \sum_{i:y_i=k} (x_i - \hat{\mu_k})^2$$
-
-$$\hat{\pi}_k = n_k / n$$
-
-$$\hat{\delta}_k = x \cdot \frac{\hat{\mu}_k}{\hat{\sigma}^2} -
-                   \frac{\hat{\mu}_k^2}{2\hat{\sigma}^2} + log(\hat{\pi}_k)$$
+$$
+\begin{align}
+\hat{\mu}_k &= \frac{1}{n_k} \sum_{i:y_i=k} x_i   \\
+\hat{\sigma}^2 &= \frac{1}{n-k} \sum_{k=1}^K 
+                                 \sum_{i:y_i=k} (x_i - \hat{\mu_k})^2 \\
+\hat{\pi}_k &= n_k / n  \\
+\hat{\delta}_k &= x \cdot \frac{\hat{\mu}_k}{\hat{\sigma}^2} -
+                   \frac{\hat{\mu}_k^2}{2\hat{\sigma}^2} + log(\hat{\pi}_k)
+\end{align}
+$$
                    
 Note that the "linear" comes from the fact that the discriminant function 
 $$\hat{\delta}_k(x)$$ is linear to $$x$$.
 
 <br/>
+
+### 4.4.3 Linear Discriminant Analysis for p > 1 (Multiple Predictors)
+
+We assume that $$X = (X_1, X_2, ..., X_p)$$ is drawn from a multivariate
+Gaussian distribution.
+
+<br/>
+
+#### Multivariate Gaussian Distribution
+
+$$X \sim N(\mu, \Sigma)$$
+
+where $$\mu = E(X)$$ and $$\Sigma = Cov(X)$$.
+
+<br/>
+
+#### Multivariate Gaussian Density Function
+
+$$f(x) = \frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}} 
+         exp \Big( -\frac{1}{2}(x-\mu)^T \Sigma^{-1}(x - \mu) \Big)$$
+         
+<br/>
+
+#### Discriminant Function ($$\delta_k(x)$$)
+
+$$\delta_k(x) = x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k +
+                log(\pi_k)$$
+
+<br/>
+
+#### Bayes Decision Boundary Where $$k = l$$ and $$\pi_k = \pi_l$$
+
+$$x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k =
+  x^T \Sigma^{-1} \mu_l - \frac{1}{2} \mu_l^T \Sigma^{-1} \mu_l$$
+
+We approximate the Bayes classifier by plugging in estimates for $$\pi_k$$,
+$$\mu_k$$, and $$\Sigma$$, which is the covariance matrix of all classes using
+$$\hat{\sigma}^2$$.
+
+$$
+\begin{align}
+\hat{\mu}_k &= \frac{1}{n_k} \sum_{i:y_i=k} x_i   \\
+\hat{\sigma}^2 &= \frac{1}{n-k} \sum_{k=1}^K 
+                                 \sum_{i:y_i=k} (x_i - \hat{\mu_k})^2 \\
+\hat{\pi}_k &= n_k / n  \\
+\hat{\delta_k} &= x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k +
+                  log(\pi_k)
+\end{align}
+$$
