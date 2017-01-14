@@ -25,9 +25,9 @@ description: Data, Machine Learning, Surgery
 
 # List of links in the navigation bar
 navbar-links:
-  ISLR: "ISLR Exercises"
-  CSE: "CSE"
-  About Me: "about"
+#  ISLR: "ISLR Exercises"
+#  CSE: "CSE"
+#  About Me: "about"
 #  Resources:
 #    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
 #    - Learn markdown: "http://www.markdowntutorial.com/"

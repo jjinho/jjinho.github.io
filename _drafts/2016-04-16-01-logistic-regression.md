@@ -93,7 +93,6 @@ $$\hat{p}(X) = \frac{ e^{\hat{\beta_0} + \hat{\beta_1} X} }
 ### 4.3.4 Multiple Logistic Regression
 
 #### The Logistic Function
-
 $$p(X) = \frac{ e^{\beta_0 + \beta_1 X_1 + ... + \beta_p X_p} }
               { 1 + e^{\beta_0 + \beta_1 X_1 + ... + \beta_p X_p} }$$
 

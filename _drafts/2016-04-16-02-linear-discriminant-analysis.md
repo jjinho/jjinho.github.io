@@ -97,7 +97,7 @@ $$
 \begin{align}
 p_k(x) &\propto \pi_k \frac{1}{\sqrt{2\pi}\sigma} 
                 exp \Big(-\frac{1}{2\sigma^2}(x - \mu_k)^2 \Big)\\
-log(p_k(x) 
+log(p_k(x)) 
     &\propto log(\pi_k) - log(\sqrt{2\pi}\sigma) - 
              \frac{1}{2 \sigma^2} (x - \mu_k)^2  \\
     &\propto log(\pi_k) - log(\sqrt{2\pi}\sigma) - 
