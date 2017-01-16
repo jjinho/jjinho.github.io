@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Probability Distributions
-subtitle: Notes from Chapter 2 of PRML
+subtitle: Notes from Chapter 1 of PRML
 ---
 
 ## Rules of Probability
@@ -178,3 +178,91 @@ $$
 This suggests that the variance obtained from maximizing the Likelihood Function
 underestimates the true variance, and therefore introduces *bias*. This also
 suggests that as we increase the number of samples, the bias decreases.
+
+<br>
+
+## Information Theory
+
+Given a discrete random variable $x$ we want to ask how much information is 
+received when we observe this variable. We want something that will describe our
+*degree of surprise* when we observe the value of $x$. If the event was highly
+improbable, then we get a lot of information, whereas if the event was completely
+expected, then we get no information. Therefore our *degree of surprise* will
+depend on the probability distribution of $x$, $p(x)$.
+
+We can describe this concept using $h(x)$ such that:
+
+$$ h(x) = - \log_2 p(x) $$
+
+If two events described by $x$ and $y$ are completely independent, then the
+information we get from observing both of them together should be the same as
+the information we get from observing them separately:
+
+$$ h(x,y) = h(x) + h(y) $$
+
+<br>
+
+### Entropy
+
+The average *amount of information* from a transmission of a random variable to a
+receiver is described by taking the expectation of $h(x)$ with respect to $p(x)$:
+
+$$ H[x] = - \sum_x p(x) \log_2 p(x) $$
+
+The ***Noiseless Coding Theorem*** by Shannon states that the entropy is the 
+lower bound on the number of bits needed to transmit the state of a random variable.
+
+We can also describe the entropy of multiple continuous variables described by the
+vector $\mathbf{x}$ as:
+
+$$ H[\mathbf{x}] = - \int p(\mathbf{x}) \ln p(\mathbf{x}) dx $$
+
+<br>
+
+#### Kullback-Leibler Divergence
+
+Given an unknown distribution $p(x)$ that we are approximating using $q(x)$, the
+average additional information required to specify $x$ using $q(x)$ instead of the
+true distribution $p(x)$ is:
+
+$$
+\begin{align}
+KL(p\|q) &= - \int p(x) \ln q(x) dx - \Bigg( - \int p(x) \ln p(x) dx \Bigg) \\
+         &= - \int p(x) \ln \Bigg\{ \frac{ q(x) }{ p(x) } \Bigg\} dx
+\end{align}
+$$
+
+This is known as the ***relative entropy*** or the ***Kullback-Leibler Divergence***
+between $p(x)$ and $q(x)$. Note that:
+
+$$ KL(p\|q) \neq KL(q\|p) $$
+
+The Kullback-Leibler divergence is a measure of the dissimilarity between the two
+distributions $p(x)$ and $q(x)$.
+
+<br>
+
+#### Mutual Information
+
+If we have the joint distribution between two variables $x$ and $y$ then their 
+joint probability can be described by $p(x,y)$. If $x$ and $y$ are independent then
+$p(x,y) = p(x)p(y)$. If they are not independent we can use the Kullback-Leibler
+divergence to see how close they are to being independent:
+
+$$
+\begin{align}
+I[\mathbf{x},\mathbf{y}] &\equiv KL(p(\mathbf{x},\mathbf{y})\|p(\mathbf{x})p(\mathbf{y})) \\
+       &= - \int \int p(\mathbf{x},\mathbf{y}) \ln \Bigg( \frac{ p(\mathbf{x})p(\mathbf{y}) }{ p(\mathbf{x},\mathbf{y}) } \Bigg) d\mathbf{x} d\mathbf{y}
+\end{align}
+$$
+
+where $I[\mathbf{x}, \mathbf{y}]$ is called the ***mutual information*** between
+variables $\mathbf{x}$ and $\mathbf{y}$. Because of the properties of the 
+Kullback-Leibler divergence, $I[\mathbf{x},\mathbf{y}] \geq 0$ if and only if
+$\mathbf{x}$ and $\mathbf{y}$ are independent.
+
+Therefore the mutual information can be seen as the reduction in uncertainty of
+$\mathbf{x}$ if we are told about $\mathbf{y}$ and vice versa. Tying this to the
+Bayesian perspective, we can say that $p(\mathbf{x})$ is the prior distribution
+for $\mathbf{x}$ while $p(\mathbf{x}|\mathbf{y})$ is the posterior distribution
+after we have observed some new data $\mathbf{y}$.
